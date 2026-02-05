@@ -43,9 +43,9 @@ export function LikeButton({ id, className }: LikeButtonProps) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={cn(
-        'group flex items-center gap-1.5 rounded-full px-3 py-1.5 transition-all duration-200',
-        'border border-border hover:border-primary/50',
-        isLiked ? 'bg-red-50 dark:bg-red-950' : 'bg-muted hover:bg-muted/80',
+        'group flex items-center gap-1.5 rounded-lg px-3 py-2 transition-all duration-300',
+        'border border-border/40 hover:border-primary/50 hover:scale-105 active:scale-95',
+        isLiked ? 'bg-red-50 dark:bg-red-950 border-red-200 dark:border-red-900' : 'bg-muted/50 hover:bg-muted',
         className,
       )}
       aria-label={isLiked ? 'Unlike' : 'Like'}
@@ -53,15 +53,15 @@ export function LikeButton({ id, className }: LikeButtonProps) {
       <Heart
         size={16}
         className={cn(
-          'transition-all duration-200',
-          isLiked ? 'fill-red-500 text-red-500' : 'text-muted-foreground group-hover:text-red-500',
-          (isHovered || isLiked) && 'scale-110',
+          'transition-all duration-300',
+          isLiked ? 'fill-red-500 text-red-500 drop-shadow-sm' : 'text-muted-foreground group-hover:text-red-500',
+          (isHovered || isLiked) && 'scale-125',
         )}
       />
       <span
         className={cn(
-          'text-xs font-medium transition-colors duration-200',
-          isLiked ? 'text-red-600 dark:text-red-300' : 'text-muted-foreground group-hover:text-foreground',
+          'text-xs font-semibold transition-all duration-300',
+          isLiked ? 'text-red-600 dark:text-red-300' : 'text-muted-foreground group-hover:text-red-500',
         )}
       >
         {likes}

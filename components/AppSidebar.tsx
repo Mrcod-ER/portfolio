@@ -45,12 +45,15 @@ export function AppSidebar() {
   const pathname = usePathname()
 
   return (
-    <Sidebar collapsible="icon" variant="sidebar">
-      <SidebarHeader>
-        <Link href="/about" className="flex items-center gap-3 px-2 py-2 rounded-lg hover:bg-sidebar-accent transition-colors duration-200 group">
-          <Avatar className="h-9 w-9 flex-shrink-0">
-            <AvatarImage src="https://avatar.vercel.sh/user?size=36" alt="Profile" />
-            <AvatarFallback>MR</AvatarFallback>
+    <Sidebar collapsible="icon" variant="sidebar" className="border-r border-border/40">
+      <SidebarHeader className="border-b border-border/40 py-4">
+        <Link 
+          href="/about" 
+          className="flex items-center gap-3 px-2 py-3 rounded-xl hover:bg-sidebar-accent/50 transition-all duration-200 group hover:scale-105 active:scale-95"
+        >
+          <Avatar className="h-10 w-10 flex-shrink-0 ring-2 ring-sidebar-accent/50 group-hover:ring-primary/50 transition-all">
+            <AvatarImage src="https://avatar.vercel.sh/user?size=40" alt="Profile" />
+            <AvatarFallback className="bg-gradient-to-br from-blue-400 to-cyan-500 text-white">MR</AvatarFallback>
           </Avatar>
           <div className="flex-1 min-w-0 group-data-[collapsible=icon]:hidden">
             <p className="text-sm font-semibold text-sidebar-foreground truncate">Profile</p>
@@ -59,11 +62,11 @@ export function AppSidebar() {
         </Link>
       </SidebarHeader>
 
-      <SidebarContent>
+      <SidebarContent className="flex-1">
         <SidebarGroup>
-          <SidebarGroupLabel>Navigation</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-2">Navigation</SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu>
+            <SidebarMenu className="gap-1">
               {mainNav.map((item) => {
                 const isActive = pathname === item.url || pathname.startsWith(item.url + '/')
                 return (
@@ -71,12 +74,14 @@ export function AppSidebar() {
                     <SidebarMenuButton
                       asChild
                       isActive={isActive}
-                      className="transition-all duration-200"
+                      className={`transition-all duration-200 rounded-lg hover:scale-105 active:scale-95 ${
+                        isActive ? 'bg-primary/10 text-primary' : 'hover:bg-sidebar-accent/50'
+                      }`}
                       tooltip={item.title}
                     >
-                      <Link href={item.url} className="flex items-center gap-2">
-                        <span className="flex-shrink-0">{item.icon}</span>
-                        <span>{item.title}</span>
+                      <Link href={item.url} className="flex items-center gap-3">
+                        <span className="flex-shrink-0 text-lg">{item.icon}</span>
+                        <span className="font-medium">{item.title}</span>
                       </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>

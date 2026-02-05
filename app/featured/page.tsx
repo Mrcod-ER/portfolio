@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { Header } from '@/components/Header'
 import { projects } from '@/data/profiles'
 import { ArrowLeft, Github, ExternalLink } from 'lucide-react'
 
@@ -12,23 +13,18 @@ export default function FeaturedPage() {
 
   return (
     <main className="min-h-screen bg-background animate-in fade-in duration-500">
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <button
-          onClick={() => router.back()}
-          className="mb-8 flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-105 hover:translate-x-1 animate-in slide-in-from-left"
-        >
-          <ArrowLeft size={16} />
-          Go Back
-        </button>
+      <Header title="Featured Projects" subtitle="My best work" showToggle={true} />
+      <div className="px-4 py-8 sm:px-6 lg:px-8 animate-in fade-in duration-500 delay-100">
+        <div className="mx-auto max-w-7xl">
+          <button
+            onClick={() => router.back()}
+            className="mb-8 flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-105 hover:translate-x-1 animate-in slide-in-from-left"
+          >
+            <ArrowLeft size={16} />
+            Go Back
+          </button>
 
-        <div className="animate-in fade-in slide-in-from-top duration-500 delay-100 mb-8">
-          <h1 className="text-4xl font-bold text-foreground mb-2">Featured Projects</h1>
-          <p className="text-lg text-muted-foreground">
-            My best work and most proud projects
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {featuredProjects.map((project, index) => (
             <div
               key={project.id}
@@ -102,18 +98,20 @@ export default function FeaturedPage() {
           ))}
         </div>
 
-        {featuredProjects.length === 0 && (
-          <div className="animate-in fade-in duration-500 delay-200 rounded-lg border border-border bg-card p-12 text-center">
-            <p className="text-muted-foreground mb-4">No featured projects yet</p>
-            <Button
-              onClick={() => router.push('/projects')}
-              variant="outline"
-              className="bg-transparent"
-            >
-              View All Projects
-            </Button>
+            {featuredProjects.length === 0 && (
+              <div className="animate-in fade-in duration-500 delay-200 rounded-lg border border-border bg-card p-12 text-center col-span-full">
+                <p className="text-muted-foreground mb-4">No featured projects yet</p>
+                <Button
+                  onClick={() => router.push('/projects')}
+                  variant="outline"
+                  className="bg-transparent"
+                >
+                  View All Projects
+                </Button>
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
     </main>
   )

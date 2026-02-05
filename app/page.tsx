@@ -3,11 +3,11 @@
 import React from "react"
 
 import { BentoGrid } from '@/components/BentoGrid'
+import { Header } from '@/components/Header'
 import { AboutModule } from '@/components/modules/AboutModule'
 import { GoalsModule } from '@/components/modules/GoalsModule'
 import { CodingProfileModule } from '@/components/modules/CodingProfileModule'
 import { ProjectsModule } from '@/components/modules/ProjectsModule'
-import { ThemeToggle } from '@/components/ThemeToggle'
 import { getEnabledModules } from '@/config/modules'
 import {
   codeforces,
@@ -34,21 +34,10 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background transition-colors duration-300">
-      {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 animate-in fade-in duration-500">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <div className="animate-in fade-in slide-in-from-left duration-500">
-            <h1 className="text-2xl font-bold text-foreground">Developer Portfolio</h1>
-            <p className="text-xs text-muted-foreground sm:text-sm">
-              Modular. Scalable. Elegant.
-            </p>
-          </div>
-          <ThemeToggle />
-        </div>
-      </header>
+      <Header />
 
       {/* Content */}
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 animate-in fade-in duration-500 delay-100">
+      <div className="px-4 py-8 sm:px-6 lg:px-8 animate-in fade-in duration-500 delay-100">
         <BentoGrid>
           {enabledModules.map((module, index) => (
             <div
@@ -64,7 +53,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="border-t border-border/40 bg-card py-8 text-center animate-in fade-in duration-500 delay-200">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="px-4 sm:px-6 lg:px-8">
           <p className="text-sm text-muted-foreground">
             Built with Next.js, Tailwind CSS & shadcn/ui
           </p>

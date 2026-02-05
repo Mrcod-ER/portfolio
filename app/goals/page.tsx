@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation'
 import { goals } from '@/data/profiles'
 import { Button } from '@/components/ui/button'
 import { LikeButton } from '@/components/LikeButton'
+import { Header } from '@/components/Header'
 import { ArrowLeft, CheckCircle2, Zap } from 'lucide-react'
 
 export default function GoalsPage() {
@@ -11,18 +12,20 @@ export default function GoalsPage() {
 
   return (
     <main className="min-h-screen bg-background animate-in fade-in duration-500">
-      <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
-        {/* Back Button */}
-        <button
-          onClick={() => router.back()}
-          className="mb-8 flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-105 hover:translate-x-1 animate-in slide-in-from-left"
-        >
-          <ArrowLeft size={16} />
-          Go Back
-        </button>
+      <Header title="Goals" subtitle="Short-term & Long-term" showToggle={true} />
+      <div className="px-4 py-8 sm:px-6 lg:px-8 animate-in fade-in duration-500 delay-100">
+        <div className="mx-auto max-w-4xl">
+          {/* Back Button */}
+          <button
+            onClick={() => router.back()}
+            className="mb-8 flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-105 hover:translate-x-1 animate-in slide-in-from-left"
+          >
+            <ArrowLeft size={16} />
+            Go Back
+          </button>
 
-        {/* Header */}
-        <div className="mb-8 rounded-lg border border-border bg-card p-6 sm:p-8 animate-in fade-in slide-in-from-top duration-500 delay-100 hover:shadow-lg transition-all">
+          {/* Header */}
+          <div className="mb-8 rounded-lg border border-border bg-card p-6 sm:p-8 animate-in fade-in slide-in-from-top duration-500 delay-200 hover:shadow-lg transition-all">
           <div className="flex items-start justify-between gap-4">
             <div className="flex-1">
               <h1 className="text-4xl font-bold text-foreground mb-2">{goals.title}</h1>
@@ -34,8 +37,8 @@ export default function GoalsPage() {
           </div>
         </div>
 
-        {/* Goals Grid */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {/* Goals Grid */}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {goals.items.map((goal, index) => (
             <div
               key={index}
@@ -61,8 +64,8 @@ export default function GoalsPage() {
           ))}
         </div>
 
-        {/* Vision Section */}
-        <div className="mt-8 rounded-lg border border-border bg-card p-6 animate-in fade-in slide-in-from-top duration-500 delay-300 hover:shadow-lg transition-all">
+          {/* Vision Section */}
+          <div className="mt-8 rounded-lg border border-border bg-card p-6 animate-in fade-in slide-in-from-top duration-500 delay-300 hover:shadow-lg transition-all">
           <div className="flex items-center gap-2 mb-4">
             <Zap size={24} className="text-primary" />
             <h2 className="text-2xl font-bold text-foreground">Long-term Vision</h2>
@@ -81,9 +84,9 @@ export default function GoalsPage() {
           </div>
         </div>
 
-        {/* Milestones */}
-        <div className="mt-8 rounded-lg border border-border bg-card p-6 animate-in fade-in slide-in-from-top duration-500 delay-400 hover:shadow-lg transition-all">
-          <h2 className="text-2xl font-bold text-foreground mb-6">Key Milestones</h2>
+          {/* Milestones */}
+          <div className="mt-8 rounded-lg border border-border bg-card p-6 animate-in fade-in slide-in-from-top duration-500 delay-400 hover:shadow-lg transition-all">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Key Milestones</h2>
           <div className="space-y-4">
             {[
               { year: '2024', milestone: 'Contribute to 5+ high-impact open-source projects' },
@@ -104,6 +107,7 @@ export default function GoalsPage() {
                 </div>
               </div>
             ))}
+            </div>
           </div>
         </div>
       </div>

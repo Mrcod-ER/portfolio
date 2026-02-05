@@ -36,11 +36,15 @@ export function ThemeToggle() {
       variant="outline"
       size="icon"
       onClick={toggleTheme}
-      className="rounded-full bg-transparent transition-all duration-300 hover:scale-110 hover:bg-muted/50"
-      aria-label="Toggle theme"
+      className="h-10 w-10 rounded-lg bg-transparent border border-border/40 transition-all duration-300 hover:scale-110 hover:bg-muted/50 hover:border-primary/50 active:scale-95"
+      aria-label={`Switch to ${isDark ? 'light' : 'dark'} theme`}
     >
-      <div className="transition-transform duration-300">
-        {isDark ? <Sun size={18} /> : <Moon size={18} />}
+      <div className={`transition-all duration-500 ${isDark ? 'rotate-180' : ''}`}>
+        {isDark ? (
+          <Sun size={20} className="text-yellow-400" />
+        ) : (
+          <Moon size={20} className="text-slate-600 dark:text-slate-400" />
+        )}
       </div>
     </Button>
   )
