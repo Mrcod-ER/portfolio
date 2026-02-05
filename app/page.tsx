@@ -35,9 +35,9 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background transition-colors duration-300">
       {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="sticky top-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 animate-in fade-in duration-500">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <div>
+          <div className="animate-in fade-in slide-in-from-left duration-500">
             <h1 className="text-2xl font-bold text-foreground">Developer Portfolio</h1>
             <p className="text-xs text-muted-foreground sm:text-sm">
               Modular. Scalable. Elegant.
@@ -48,14 +48,22 @@ export default function Home() {
       </header>
 
       {/* Content */}
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 animate-in fade-in duration-500 delay-100">
         <BentoGrid>
-          {enabledModules.map((module) => moduleComponents[module.id])}
+          {enabledModules.map((module, index) => (
+            <div
+              key={module.id}
+              className="animate-in fade-in duration-500"
+              style={{ animationDelay: `${(index + 1) * 50}ms` }}
+            >
+              {moduleComponents[module.id]}
+            </div>
+          ))}
         </BentoGrid>
       </div>
 
       {/* Footer */}
-      <footer className="border-t border-border/40 bg-card py-8 text-center">
+      <footer className="border-t border-border/40 bg-card py-8 text-center animate-in fade-in duration-500 delay-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm text-muted-foreground">
             Built with Next.js, Tailwind CSS & shadcn/ui

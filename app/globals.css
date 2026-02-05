@@ -102,6 +102,74 @@ body {
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  .animate-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  .slide-in-from-left {
+    animation: slideInFromLeft 0.5s ease-out forwards;
+  }
+  
+  .slide-in-from-right {
+    animation: slideInFromRight 0.5s ease-out forwards;
+  }
+  
+  .slide-in-from-top {
+    animation: slideInFromTop 0.5s ease-out forwards;
+  }
+  
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+  
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+}
+
 @supports (backdrop-filter: blur(1px)) {
   .backdrop-blur {
     backdrop-filter: blur(10px);

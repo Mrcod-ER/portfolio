@@ -11,19 +11,19 @@ export default function AboutPage() {
   const router = useRouter()
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background animate-in fade-in duration-500">
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Back Button */}
         <button
           onClick={() => router.back()}
-          className="mb-8 flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          className="mb-8 flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-105 hover:translate-x-1 animate-in slide-in-from-left"
         >
           <ArrowLeft size={16} />
           Go Back
         </button>
 
         {/* Header */}
-        <div className="mb-8 rounded-lg border border-border bg-card p-6 sm:p-8">
+        <div className="mb-8 rounded-lg border border-border bg-card p-6 sm:p-8 animate-in fade-in slide-in-from-top duration-500 delay-100 hover:shadow-lg transition-all">
           <div className="flex items-start justify-between gap-4 mb-6">
             <div>
               <h1 className="text-4xl font-bold text-foreground mb-2">{aboutMe.name}</h1>
@@ -74,7 +74,7 @@ export default function AboutPage() {
         </div>
 
         {/* Skills */}
-        <div className="rounded-lg border border-border bg-card p-6">
+        <div className="rounded-lg border border-border bg-card p-6 animate-in fade-in slide-in-from-top duration-500 delay-200 hover:shadow-lg transition-all">
           <h2 className="text-2xl font-bold text-foreground mb-4">Skills & Expertise</h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {aboutMe.skills.map((skill) => (
@@ -87,7 +87,7 @@ export default function AboutPage() {
         </div>
 
         {/* Additional Info */}
-        <div className="mt-8 rounded-lg border border-border bg-card p-6">
+        <div className="mt-8 rounded-lg border border-border bg-card p-6 animate-in fade-in slide-in-from-top duration-500 delay-300 hover:shadow-lg transition-all">
           <h2 className="text-xl font-bold text-foreground mb-4">Career Highlights</h2>
           <div className="space-y-4">
             <div>

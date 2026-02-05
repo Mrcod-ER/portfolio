@@ -3,6 +3,9 @@ import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 
 import './globals.css'
+import { SidebarProvider } from '@/components/ui/sidebar'
+import { AppSidebar } from '@/components/AppSidebar'
+import { ThemeProvider } from '@/components/theme-provider'
 
 const _geist = Geist({ subsets: ['latin'] })
 const _geistMono = Geist_Mono({ subsets: ['latin'] })
@@ -27,7 +30,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <SidebarProvider defaultOpen={true}>
+            <AppSidebar />
+            <div className="flex-1">
+              {children}
+            </div>
+          </SidebarProvider>
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

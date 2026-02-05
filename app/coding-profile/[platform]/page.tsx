@@ -24,11 +24,11 @@ export default function CodingProfileDetailPage() {
 
   if (!profile) {
     return (
-      <main className="min-h-screen bg-background">
+      <main className="min-h-screen bg-background animate-in fade-in duration-500">
         <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
           <button
             onClick={() => router.back()}
-            className="mb-8 flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="mb-8 flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-105 hover:translate-x-1 animate-in slide-in-from-left"
           >
             <ArrowLeft size={16} />
             Go Back
@@ -48,24 +48,24 @@ export default function CodingProfileDetailPage() {
   const progressPercentage = (profile.rating / profile.maxRating) * 100
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background animate-in fade-in duration-500">
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Back Button */}
         <button
           onClick={() => router.back()}
-          className="mb-8 flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          className="mb-8 flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-105 hover:translate-x-1 animate-in slide-in-from-left"
         >
           <ArrowLeft size={16} />
           Go Back
         </button>
 
         {/* Header */}
-        <div className="mb-8 rounded-lg border border-border bg-card p-6 sm:p-8">
+        <div className="mb-8 rounded-lg border border-border bg-card p-6 sm:p-8 animate-in fade-in slide-in-from-top duration-500 delay-100 hover:shadow-lg transition-all">
           <div className="flex items-start justify-between gap-4 mb-6">
             <div>
               <h1 className="text-4xl font-bold text-foreground mb-2">{profile.name}</h1>
               <p className="text-lg text-muted-foreground mb-4">{profile.rank}</p>
-              <Button asChild className="gap-2">
+              <Button asChild className="gap-2 transition-all duration-200 hover:scale-105">
                 <a href={profile.link} target="_blank" rel="noopener noreferrer">
                   <ExternalLink size={16} />
                   Visit Profile
@@ -79,7 +79,7 @@ export default function CodingProfileDetailPage() {
         {/* Stats Grid */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 mb-8">
           {/* Rating */}
-          <div className="rounded-lg border border-border bg-card p-6">
+          <div className="rounded-lg border border-border bg-card p-6 animate-in fade-in slide-in-from-top duration-500 delay-200 hover:shadow-lg transition-all">
             <div className="flex items-center gap-2 mb-3">
               <Trophy size={20} className="text-primary" />
               <h3 className="font-semibold text-foreground">Current Rating</h3>
@@ -99,7 +99,7 @@ export default function CodingProfileDetailPage() {
           </div>
 
           {/* Contests */}
-          <div className="rounded-lg border border-border bg-card p-6">
+          <div className="rounded-lg border border-border bg-card p-6 animate-in fade-in slide-in-from-top duration-500 delay-300 hover:shadow-lg transition-all">
             <div className="flex items-center gap-2 mb-3">
               <Target size={20} className="text-primary" />
               <h3 className="font-semibold text-foreground">Contests Participated</h3>
@@ -111,7 +111,7 @@ export default function CodingProfileDetailPage() {
           </div>
 
           {/* Problems Solved */}
-          <div className="rounded-lg border border-border bg-card p-6">
+          <div className="rounded-lg border border-border bg-card p-6 animate-in fade-in slide-in-from-top duration-500 delay-300 hover:shadow-lg transition-all" style={{ animationDelay: '300ms' }}>
             <div className="flex items-center gap-2 mb-3">
               <CodeSquare size={20} className="text-primary" />
               <h3 className="font-semibold text-foreground">Problems Solved</h3>
@@ -123,7 +123,7 @@ export default function CodingProfileDetailPage() {
           </div>
 
           {/* Rank */}
-          <div className="rounded-lg border border-border bg-card p-6">
+          <div className="rounded-lg border border-border bg-card p-6 animate-in fade-in slide-in-from-top duration-500 delay-400 hover:shadow-lg transition-all">
             <div className="flex items-center gap-2 mb-3">
               <Award size={20} className="text-primary" />
               <h3 className="font-semibold text-foreground">Achievement</h3>
@@ -136,7 +136,7 @@ export default function CodingProfileDetailPage() {
         </div>
 
         {/* Summary */}
-        <div className="rounded-lg border border-border bg-card p-6">
+        <div className="rounded-lg border border-border bg-card p-6 animate-in fade-in slide-in-from-top duration-500 delay-500 hover:shadow-lg transition-all">
           <h2 className="text-xl font-bold text-foreground mb-4">Performance Summary</h2>
           <div className="space-y-4">
             <div>

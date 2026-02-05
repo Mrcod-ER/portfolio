@@ -10,19 +10,19 @@ export default function GoalsPage() {
   const router = useRouter()
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background animate-in fade-in duration-500">
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Back Button */}
         <button
           onClick={() => router.back()}
-          className="mb-8 flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          className="mb-8 flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-105 hover:translate-x-1 animate-in slide-in-from-left"
         >
           <ArrowLeft size={16} />
           Go Back
         </button>
 
         {/* Header */}
-        <div className="mb-8 rounded-lg border border-border bg-card p-6 sm:p-8">
+        <div className="mb-8 rounded-lg border border-border bg-card p-6 sm:p-8 animate-in fade-in slide-in-from-top duration-500 delay-100 hover:shadow-lg transition-all">
           <div className="flex items-start justify-between gap-4">
             <div className="flex-1">
               <h1 className="text-4xl font-bold text-foreground mb-2">{goals.title}</h1>
@@ -39,7 +39,8 @@ export default function GoalsPage() {
           {goals.items.map((goal, index) => (
             <div
               key={index}
-              className="group rounded-lg border border-border bg-card p-6 hover:border-primary/50 hover:shadow-md transition-all duration-300"
+              className="group rounded-lg border border-border bg-card p-6 hover:border-primary/50 hover:shadow-md hover:scale-105 transition-all duration-300 animate-in fade-in slide-in-from-top"
+              style={{ animationDelay: `${(index + 1) * 50}ms` }}
             >
               <div className="flex items-start gap-4">
                 <div className="text-3xl">{goal.icon}</div>
@@ -61,7 +62,7 @@ export default function GoalsPage() {
         </div>
 
         {/* Vision Section */}
-        <div className="mt-8 rounded-lg border border-border bg-card p-6">
+        <div className="mt-8 rounded-lg border border-border bg-card p-6 animate-in fade-in slide-in-from-top duration-500 delay-300 hover:shadow-lg transition-all">
           <div className="flex items-center gap-2 mb-4">
             <Zap size={24} className="text-primary" />
             <h2 className="text-2xl font-bold text-foreground">Long-term Vision</h2>
@@ -81,7 +82,7 @@ export default function GoalsPage() {
         </div>
 
         {/* Milestones */}
-        <div className="mt-8 rounded-lg border border-border bg-card p-6">
+        <div className="mt-8 rounded-lg border border-border bg-card p-6 animate-in fade-in slide-in-from-top duration-500 delay-400 hover:shadow-lg transition-all">
           <h2 className="text-2xl font-bold text-foreground mb-6">Key Milestones</h2>
           <div className="space-y-4">
             {[
